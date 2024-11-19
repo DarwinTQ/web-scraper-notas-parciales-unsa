@@ -1,0 +1,1 @@
+# Este archivo puede contener funciones auxiliares que faciliten la extracción y el procesamiento de datos.
