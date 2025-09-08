@@ -8,27 +8,27 @@ import time
 
 def iniciar_sesion(usuario, clave):
     url = 'http://extranet.unsa.edu.pe/sisacad/parciales18/index.php'
-    driver = webdriver.Chrome()  # Asegúrate de tener el driver de Chrome instalado y en tu PATH
+    driver = webdriver.Chrome()  
     driver.get(url)
 
-    # Esperar a que el campo de usuario esté presente
+    # campo de usuario esté presente
     WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.NAME, 'usuario')))
 
-    # Ingresar usuario y clave
+    # usuario y clave
     driver.find_element(By.NAME, 'usuario').send_keys(usuario)
     driver.find_element(By.NAME, 'clave').send_keys(clave)
 
-    # Resolver el captcha manualmente
+    # Captcha manualmente
     print("Por favor, resuelve el captcha manualmente y presiona Enter...")
     input()
 
-    # Enviar el formulario
+    # Env formulario
     driver.find_element(By.NAME, 'consulta').submit()
 
-    # Esperar a que la tabla de resultados esté presente
+    # tabla de resultados PRESENTES
     WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.ID, 'resul_tab')))
 
-    # Obtener el HTML de la página
+    # GET el HTML de la página
     html = driver.page_source
     driver.quit()
     return html
@@ -37,15 +37,15 @@ def obtener_notas(html):
     soup = BeautifulSoup(html, 'html.parser')
     notas = []
 
-    # Ajustar el selector según la estructura HTML de la página
+    # Ajuste de seccion tabla
     tabla = soup.find('table', {'id': 'resul_tab'})
     if not tabla:
         print("No se encontró la tabla de resultados.")
         return []
 
-    for row in tabla.find_all('tr')[1:]:  # Omitir la fila de encabezado
+    for row in tabla.find_all('tr')[1:]:  # Omision de  la fila de encabezado
         cols = row.find_all('td')
-        if len(cols) > 4:  # Asegurarse de que hay suficientes columnas
+        if len(cols) > 4:  # Columnas suficentes
             asignatura = cols[1].text.strip()
             nota = float(cols[4].text.strip())
             peso = float(cols[5].text.strip().replace('%', '')) / 100
