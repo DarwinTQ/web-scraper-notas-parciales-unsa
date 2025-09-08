@@ -14,7 +14,7 @@ web-scraper-notas-unsa
 ├── requirements.txt       # Dependencias del proyecto
 └── README.md              # Documentación del proyecto
 ```
-- ![PeruBank](/webscrappermain.png)
+- ![Web Main](/webscrappermain.png)
 ## Instalación
 
 1. Clona el repositorio:
