@@ -1,4 +1,5 @@
-# Proyecto Web Scraper Notas UNSA
+# Web Scraper Notas UNSA
+- ![PeruBank](/webscrapper.png)
 
 Este proyecto es un scraper web diseñado para extraer las notas de los estudiantes de la página de Notas UNSA. El scraper realiza una solicitud HTTP a la página, extrae los datos relevantes y muestra cuántas notas tiene el usuario.
 
@@ -13,7 +14,7 @@ web-scraper-notas-unsa
 ├── requirements.txt       # Dependencias del proyecto
 └── README.md              # Documentación del proyecto
 ```
-
+- ![PeruBank](/webscrappermain.png)
 ## Instalación
 
 1. Clona el repositorio:
